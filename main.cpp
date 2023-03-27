@@ -11,39 +11,54 @@
 #include "circle.h"
 #include "triangle.h"
 
+void shape_program();
+void shape_prompt(std::string&);
+bool shape_input(std::string);
+
 int main(int argc, char* argv[])
 {
+    shape_program();
+    
     // Please enter a shape (rectangle, square, circle, triangle): rectangle
     
     // Please enter width and height, separated by space: 5.1 3.4
     
     // rectangle(w: 5.1, h: 3.4, area: XXXX, perimeter: XXXX)
+    
+    
+
+
+    return 0;
+}
+
+void shape_program()
+{
+    std::string which;
+    
     do
     {
-        std::cout << "Please enter a shape (rectangle, square, circle, triangle): ";
-        std::string which; // which shape
+        shape_prompt(which);
+
+        if (which == "q")  break;
+
         std::string line;  // each shape input
-        
-        std::getline(std::cin, which);
 
-        std::transform(which.cbegin(), which.cend(), which.begin(),
-            std::tolower);
+        if (!shape_input(which))    continue;
 
-
-        
-
+        /*
         if (which == "rectangle")
         {
             float w = 0.f, h = 0.f;
-            
+
             std::cout << "Please enter width and height, separated by space: ";
             //std::getline(std::cin, str, ' ');
 
             std::getline(std::cin, line);
-            
+
             std::istringstream iss(line);
 
             iss >> w >> h;
+
 
             std::cout << rectangle{ w, h } << std::endl;
         }
@@ -54,6 +69,10 @@ int main(int argc, char* argv[])
             std::cout << "Please enter a number: ";
             std::getline(std::cin, line);
 
+            std::istringstream iss(line);
+
+            iss >> side;
+
             std::cout << square{ side } << std::endl;
         }
         else if (which == "circle")
@@ -62,6 +81,10 @@ int main(int argc, char* argv[])
 
             std::cout << "Please enter a number: ";
             std::getline(std::cin, line);
+
+            std::istringstream iss(line);
+
+            iss >> r;
 
             std::cout << circle{ r } << std::endl;
         }
@@ -73,20 +96,102 @@ int main(int argc, char* argv[])
             std::getline(std::cin, line);
 
             std::istringstream iss(line);
-
             iss >> s1 >> s2 >> s3;
 
             std::cout << triangle{ s1, s2, s3 } << std::endl;
         }
         else
         {
-            std::cout << "You did not enter any valid input!" << std::endl;
+            std::cout << "You entered some invalid characters." << std::endl;
 
-            break;
+            std::cin.clear();
+
+            continue;
         }
+        */
     } while (!std::cin.fail());
-    
+}
 
 
-    return 0;
+void shape_prompt(std::string& which)
+{
+    std::cout << "Please enter a shape (rectangle, square, circle, triangle): ";
+    std::getline(std::cin, which);
+
+    std::transform(which.cbegin(), which.cend(), which.begin(),
+        std::tolower);
+}
+
+bool shape_input(std::string which)
+{
+    std::string line;
+    bool valid_input = false;
+
+    if (which == "rectangle" || which == "rect")
+    {
+        valid_input = true;
+
+        float w = 0.f, h = 0.f;
+
+        std::cout << "Please enter width and height, separated by space: ";
+        std::getline(std::cin, line);
+
+        std::istringstream iss(std::move(line));
+
+        iss >> w >> h;
+
+        std::cout << rectangle{ w, h } << std::endl;
+    }
+    else if (which == "square" || which == "sq")
+    {
+        valid_input = true;
+
+        float side = 0.f;
+
+        std::cout << "Please enter a number: ";
+        std::getline(std::cin, line);
+
+        std::istringstream iss(std::move(line));
+
+        iss >> side;
+
+        std::cout << square{ side } << std::endl;
+    }
+    else if (which == "circle" || which == "cir")
+    {
+        valid_input = true;
+
+        float r = 0.f;
+
+        std::cout << "Please enter a number: ";
+        std::getline(std::cin, line);
+
+        std::istringstream iss(std::move(line));
+
+        iss >> r;
+
+        std::cout << circle{ r } << std::endl;
+    }
+    else if (which == "triangle" || which == "tri")
+    {
+        valid_input = true;
+
+        float s1, s2, s3;
+
+        std::cout << "Please enter each side of triangle, separated by space: ";
+        std::getline(std::cin, line);
+
+        std::istringstream iss(std::move(line));
+        iss >> s1 >> s2 >> s3;
+
+        std::cout << triangle{ s1, s2, s3 } << std::endl;
+    }
+    else
+    {
+        std::cout << "You entered some invalid characters." << std::endl;
+
+        std::cin.clear();
+    }
+
+    return valid_input;
 }

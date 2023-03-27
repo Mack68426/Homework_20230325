@@ -3,6 +3,15 @@
 #include <string>
 #include <iostream>
 
+
+enum class shape_type
+{
+	rectangle,
+	square,
+	circle,
+	triangle
+};
+
 class shape
 {
 public:
@@ -24,6 +33,7 @@ public:
 
 
 std::ostream& operator<<(std::ostream& os, const shape& sp);
+std::istream& operator>>(std::istream&, shape&);
 
 /*
 std::ostream& operator<<(std::ostream& os, const rectangle& rect);
