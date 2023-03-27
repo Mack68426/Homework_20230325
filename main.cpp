@@ -45,70 +45,7 @@ void shape_program()
 
         if (!shape_input(which))    continue;
 
-        /*
-        if (which == "rectangle")
-        {
-            float w = 0.f, h = 0.f;
-
-            std::cout << "Please enter width and height, separated by space: ";
-            //std::getline(std::cin, str, ' ');
-
-            std::getline(std::cin, line);
-
-            std::istringstream iss(line);
-
-            iss >> w >> h;
-
-
-            std::cout << rectangle{ w, h } << std::endl;
-        }
-        else if (which == "square")
-        {
-            float side = 0.f;
-
-            std::cout << "Please enter a number: ";
-            std::getline(std::cin, line);
-
-            std::istringstream iss(line);
-
-            iss >> side;
-
-            std::cout << square{ side } << std::endl;
-        }
-        else if (which == "circle")
-        {
-            float r = 0.f;
-
-            std::cout << "Please enter a number: ";
-            std::getline(std::cin, line);
-
-            std::istringstream iss(line);
-
-            iss >> r;
-
-            std::cout << circle{ r } << std::endl;
-        }
-        else if (which == "triangle")
-        {
-            float s1, s2, s3;
-
-            std::cout << "Please enter each side of triangle, separated by space: ";
-            std::getline(std::cin, line);
-
-            std::istringstream iss(line);
-            iss >> s1 >> s2 >> s3;
-
-            std::cout << triangle{ s1, s2, s3 } << std::endl;
-        }
-        else
-        {
-            std::cout << "You entered some invalid characters." << std::endl;
-
-            std::cin.clear();
-
-            continue;
-        }
-        */
+      
     } while (!std::cin.fail());
 }
 
