@@ -19,15 +19,6 @@ int main(int argc, char* argv[])
 {
     shape_program();
     
-    // Please enter a shape (rectangle, square, circle, triangle): rectangle
-    
-    // Please enter width and height, separated by space: 5.1 3.4
-    
-    // rectangle(w: 5.1, h: 3.4, area: XXXX, perimeter: XXXX)
-    
-    
-
-
     return 0;
 }
 

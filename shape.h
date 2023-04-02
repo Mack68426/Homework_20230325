@@ -33,7 +33,6 @@ public:
 
 
 std::ostream& operator<<(std::ostream& os, const shape& sp);
-std::istream& operator>>(std::istream&, shape&);
 
 /*
 std::ostream& operator<<(std::ostream& os, const rectangle& rect);

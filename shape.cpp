@@ -7,11 +7,6 @@ std::ostream& operator<<(std::ostream& os, const shape& sp)
 	// return os << sp.shape_details();
 }
 
-std::istream& operator>>(std::istream& istm, shape& shp)
-{
-	return istm >> shp;
-}
-
 /*
 std::ostream& operator<<(std::ostream& os, const rectangle& rect)
 {
