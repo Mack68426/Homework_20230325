@@ -6,10 +6,10 @@
 
 enum class shape_type
 {
-	rectangle,
-	square,
-	circle,
-	triangle
+	n_Rectangle,
+	n_Square,
+	n_Circle,
+	n_Triangle
 };
 
 class shape
